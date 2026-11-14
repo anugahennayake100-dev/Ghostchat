@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#7755f7">
+    <title>GostChat - Connect & Share</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+
+        <h1 class="logo">
+            <i class="fa-solid fa-ghost"></i> GostChat
+        </h1>
+
+        <nav>
+            <a class="nav-link active" data-page="home">
+                <i class="fa-solid fa-house"></i> Home
+            </a>
+
+            <a class="nav-link" data-page="search">
+                <i class="fa-solid fa-magnifying-glass"></i> Search
+            </a>
+
+            <a class="nav-link" data-page="explore">
+                <i class="fa-regular fa-compass"></i> Explore
+            </a>
+
+            <a class="nav-link" data-page="messages">
+                <i class="fa-regular fa-paper-plane"></i> Messages
+            </a>
+
+            <a class="nav-link" data-page="notifications">
+                <i class="fa-regular fa-heart"></i> Notifications
+            </a>
+
+            <a class="nav-link" data-page="profile">
+                <i class="fa-regular fa-user"></i> Profile
+            </a>
+        </nav>
+
+        <button class="create-btn" id="createBtn">
+            <i class="fa-solid fa-plus"></i> Create Post
+        </button>
+
+        <button class="theme-btn" id="themeBtn">
+            <i class="fa-solid fa-moon"></i> Dark Mode
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <header class="topbar">
+            <h2 id="pageTitle">Home</h2>
+
+            <div class="top-actions">
+                <span class="online-dot"></span>
+                Welcome to GostChat
+            </div>
+        </header>
+
+
+        <!-- HOME PAGE -->
+        <section id="homePage" class="page active">
+
+            <!-- STORIES -->
+            <div class="stories">
+
+                <div class="story add-story" id="addStory">
+                    <div class="story-img">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <span>Your Story</span>
+                </div>
+
+                <div class="story">
+                    <img src="https://i.pravatar.cc/100?img=12" alt="Alex">
+                    <span>alex</span>
+                </div>
+
+                <div class="story">
+                    <img src="https://i.pravatar.cc/100?img=32" alt="Sarah">
+                    <span>sarah</span>
+                </div>
+
+                <div class="story">
+                    <img src="https://i.pravatar.cc/100?img=45" alt="James">
+                    <span>james</span>
+                </div>
+
+                <div class="story">
+                    <img src="https://i.pravatar.cc/100?img=22" alt="Emma">
+                    <span>emma</span>
+                </div>
+
+                <div class="story">
+                    <img src="https://i.pravatar.cc/100?img=15" alt="Mike">
+                    <span>mike</span>
+                </div>
+
+            </div>
+
+            <!-- POSTS -->
+            <div id="feed" class="feed"></div>
+
+        </section>
+
+
+        <!-- SEARCH PAGE -->
+        <section id="searchPage" class="page">
+
+            <h2>Discover People</h2>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search users..."
+            >
+
+            <div id="searchResults"></div>
+
+        </section>
+
+
+        <!-- EXPLORE PAGE -->
+        <section id="explorePage" class="page">
+
+            <h2>Explore GostChat</h2>
+
+            <div id="exploreGrid" class="explore-grid"></div>
+
+        </section>
+
+
+        <!-- MESSAGES PAGE -->
+        <section id="messagesPage" class="page">
+
+            <h2>Messages</h2>
+
+            <div class="chat-box">
+
+                <div class="chat-users" id="chatUsers"></div>
+
+                <div class="chat-content">
+
+                    <div id="chatMessages">
+                        <p class="empty">
+                            Select a conversation to start chatting.
+                        </p>
+                    </div>
+
+                    <form id="chatForm" class="chat-input">
+
+                        <input
+                            id="messageInput"
+                            type="text"
+                            placeholder="Write a message..."
+                            autocomplete="off"
+                        >
+
+                        <button type="submit">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- NOTIFICATIONS PAGE -->
+        <section id="notificationsPage" class="page">
+
+            <h2>Notifications</h2>
+
+            <div id="notificationList"></div>
+
+        </section>
+
+
+        <!-- PROFILE PAGE -->
+        <section id="profilePage" class="page">
+
+            <div class="profile-header">
+
+                <img
+                    src="https://i.pravatar.cc/150?img=11"
+                    id="profileImage"
+                    alt="Profile picture"
+                >
+
+                <div>
+
+                    <h2 id="profileName">Your Name</h2>
+
+                    <p>@yourusername</p>
+
+                    <div class="stats">
+
+                        <span>
+                            <b id="postCount">0</b> Posts
+                        </span>
+
+                        <span>
+                            <b>245</b> Followers
+                        </span>
+
+                        <span>
+                            <b>180</b> Following
+                        </span>
+
+                    </div>
+
+                    <button class="small-btn" id="editProfile">
+                        Edit Profile
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div id="profilePosts" class="explore-grid"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- RIGHT SIDEBAR -->
+    <aside class="right-panel">
+
+        <div class="my-account">
+
+            <img src="https://i.pravatar.cc/100?img=11" alt="My profile">
+
+            <div>
+                <b>yourusername</b>
+                <small>Your account</small>
+            </div>
+
+        </div>
+
+        <h4>Suggested for you</h4>
+
+        <div class="suggestion">
+
+            <img src="https://i.pravatar.cc/100?img=20" alt="John">
+
+            <span>
+                <b>john_doe</b>
+                <small>Suggested for you</small>
+            </span>
+
+            <button class="follow-btn">Follow</button>
+
+        </div>
+
+        <div class="suggestion">
+
+            <img src="https://i.pravatar.cc/100?img=30" alt="Lisa">
+
+            <span>
+                <b>lisa_world</b>
+                <small>New to GostChat</small>
+            </span>
+
+            <button class="follow-btn">Follow</button>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 GostChat. Connect your world.
+        </p>
+
+    </aside>
+
+</div>
+
+
+<!-- CREATE POST MODAL -->
+<div class="modal" id="postModal">
+
+    <div class="modal-content">
+
+        <button class="close" data-close="postModal">&times;</button>
+
+        <h2>Create a Post</h2>
+
+        <form id="postForm">
+
+            <input
+                type="file"
+                id="imageInput"
+                accept="image/*"
+                required
+            >
+
+            <img id="imagePreview" alt="Image preview">
+
+            <textarea
+                id="captionInput"
+                placeholder="Write a caption..."
+            ></textarea>
+
+            <button type="submit" class="primary-btn">
+                Share Post
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- EDIT PROFILE MODAL -->
+<div class="modal" id="profileModal">
+
+    <div class="modal-content">
+
+        <button class="close" data-close="profileModal">&times;</button>
+
+        <h2>Edit Profile</h2>
+
+        <input
+            type="text"
+            id="nameInput"
+            placeholder="Your name"
+        >
+
+        <input
+            type="text"
+            id="usernameInput"
+            placeholder="Username"
+        >
+
+        <textarea
+            id="bioInput"
+            placeholder="Your bio"
+        ></textarea>
+
+        <button class="primary-btn" id="saveProfile">
+            Save Changes
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- STORY VIEWER -->
+<div class="modal" id="storyModal">
+
+    <div class="story-viewer">
+
+        <button class="close" data-close="storyModal">&times;</button>
+
+        <img id="storyViewerImage" src="" alt="Story">
+
+        <p id="storyViewerName"></p>
+
+    </div>
+
+</div>
+
+
+<!-- STORY UPLOAD -->
+<input
+    type="file"
+    id="storyInput"
+    accept="image/*"
+    hidden
+>
+
+
+<!-- TOAST MESSAGE -->
+<div id="toast" class="toast"></div>
+
+
+<!-- JAVASCRIPT -->
+<script src="script.js"></script>
+
+</body>
+</html>
